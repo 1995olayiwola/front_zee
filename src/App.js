@@ -6,7 +6,8 @@ import Home from "./components/Home"
 import Contact from "./components/Contact"
 import About from "./components/About"
 import Blog from "./components/Blog"
-import BlogDetail from "./components/BlogDetail"
+import BlogDetail from "./components/BlogDetail";
+import Upload from './components/Upload';
 import {BrowserRouter as Router,Route} from "react-router-dom";
  
 
@@ -21,6 +22,7 @@ function App() {
         <Route path="/blog" exact component={Blog}></Route>
         <Route path="/blog/:id"  component={BlogDetail}></Route>
         <Route path="/flat/:slug"  component={FlatDetail}></Route>
+        <Route path="/property/upload"  component={Upload}></Route>
         <Footer />
       </div>
     </Router>

@@ -2,9 +2,32 @@ import React from 'react';
 import Input from './widgets/Input';
 import ReactTextArea from './widgets/ReactQuill'
 import RichTextarea from './widgets/ReactQuill';
+import ReactSelect from './widgets/ReactSelect';
 import Parse from 'parse';
 import Loading from './Loading';
 import Button from 'react-bootstrap/Button';
+const options = [
+    {
+      value: '5 bedroom flat',
+      label: '5 bedroom flat'
+    },
+    {
+      value: '4 bedroom flat',
+      label: '4 bedroom flat'
+    },
+    {
+      value: '3 bedroom flat',
+      label: '3 bedroom flat'
+    },
+    {
+        value: '2 bedroom flat',
+        label: '2 bedroom flat'
+      },
+      {
+        value: '1 bedroom flat',
+        label: '1 bedroom flat'
+      }
+  ];
 
 const Upload = () => {
     const tableName = 'Cart';
@@ -96,6 +119,7 @@ alert(err.message)
 <Input type='text' placeholder='Enter product name' title='Product Name' name='name' value={formValues.name} handleChange={handleChange} />
 <Input type='text' placeholder='Enter product type' title='Product Type' name='type'value={formValues.type}  handleChange={handleChange}/>
 <Input type='number' placeholder='Enter product price' title='Product Price' name='price' value={formValues.price}  handleChange={handleChange}/>
+<ReactSelect onClick={handleChange} options={options} />
 <RichTextarea type='text' placeholder='Enter product description' name='description' value={formValues.description} title='Product Description' handleChange={(value)=>{handleChange({target:{name:'description',value}})}} />
 
         <input type='file' onChange={handleSelect}/>

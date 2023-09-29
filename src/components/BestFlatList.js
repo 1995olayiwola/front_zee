@@ -6,7 +6,7 @@ import BestFlatItem from "./BestFlatItem"
 export default class BestFlatList extends Component {
     render() {
         const title = {
-            text: "Lorem Ipsum",
+            text: "Affordable houses",
             description: "Lorem ipsum dolor sit ame"
         }
         const settings = {
