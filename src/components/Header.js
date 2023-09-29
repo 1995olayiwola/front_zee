@@ -8,10 +8,10 @@ const Header = () => {
                 <nav className="navbar navbar-expand-lg navbar-light">
                     <div className="container-fluid">
                         <Link className="navbar-brand" to="/">
-                            <div className="d-flex align-items-center">
+                            <div className="">
                             <i className="fas fa-home"></i>
                                 <span className="ms-2">
-                                    ZEEGOLD INVESTMENT LIMITED
+                            ZEEGOLD INVESTMENT LIMITED
                            </span>
                             </div>
                         </Link>
