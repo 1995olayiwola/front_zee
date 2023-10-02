@@ -3,8 +3,8 @@ import Slider from "react-slick";
 import Title from "./Title"
 import BestFlatItem from "./BestFlatItem"
 
-export default class BestFlatList extends Component {
-    render() {
+const BestFlatList= ()=>{
+   
         const title = {
             text: "Affordable houses",
             description: "Lorem ipsum dolor sit ame"
@@ -36,7 +36,7 @@ export default class BestFlatList extends Component {
                     }
                 }
             ]
-        };
+        }
         return (
             <section className="section-best-estate"> 
                 <div className="container">
@@ -56,5 +56,7 @@ export default class BestFlatList extends Component {
                 </div>
             </section>
         );
-    }
+    
 }
+
+export default BestFlatList;

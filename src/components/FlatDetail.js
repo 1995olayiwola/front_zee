@@ -1,8 +1,44 @@
 import React from "react";
 import ImageGallery from 'react-image-gallery';
+import Parse from 'parse';
+import {useHistory} from 'react-router-dom';
+import Loading from './Loading';
 
 
-const FlatDetail = () => {
+const FlatDetail = (props) => {
+    console.log(props)
+    const id = props.match.params.id;
+    const[loading,setLoading] = React.useState(false);
+    const user = Parse.User.current();
+    const [data,setData]=React.useState({
+        results:[],count:0
+      });
+    const history = useHistory();
+  React.useEffect(()=>{
+    const process = async()=>{
+      try{
+const query = new Parse.Query('Properties');
+query.withCount();
+query.equalTo('user',user);
+query.equalTo('objectId',id)
+const records = await query.first();
+console.log(records);
+
+ setData(records);
+console.log(records)
+
+
+
+      }
+      catch(err){
+alert(err.message)
+      }
+      
+      
+    }
+    process();
+  },[id])
+  console.log(data);
     const images = [
         {
             original: '/img/product1.jpeg',
