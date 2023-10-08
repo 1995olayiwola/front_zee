@@ -11,7 +11,9 @@ function NavScrollExample() {
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container fluid>
         <Navbar.Brand href="/">
-           <img src="http://res.cloudinary.com/olatechbus/image/upload/v1696785401/ui5vzud4ptnmbfiw3iov.jpg" width="100px" height="100px" alt="ZEEGOLD INVESTMENT LIMITED"/>
+           <img src="http://res.cloudinary.com/olatechbus/image/upload/v1696785401/ui5vzud4ptnmbfiw3iov.jpg" width="80px" height="80px" style={{
+            margin:'10px', clipPath:'circle'
+           }} alt="ZEEGOLD INVESTMENT LIMITED"/>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
