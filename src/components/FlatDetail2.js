@@ -19,7 +19,7 @@ const FlatDetail = (props) => {
   React.useEffect(()=>{
     const process = async()=>{
       try{
-const query = new Parse.Query('Properties');
+const query = new Parse.Query('Properties2');
 query.withCount();
 query.equalTo('user',user);
 query.equalTo('objectId',id)
@@ -119,7 +119,7 @@ return (
          
                                 <div className="fd-item">
                                     <h4>Description</h4>
-                                    <p><div dangerouslySetInnerHTML={{__html: item.get('description').slice(0,100)}} /></p>
+                                    <p><div dangerouslySetInnerHTML={{__html: item.get('description')}} /></p>
                                 </div>
                                 <div className="fd-item fd-property-detail">
                                     <h4>Property Details</h4>

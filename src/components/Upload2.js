@@ -30,9 +30,19 @@ const options = [
         label: '1 bedroom flat'
       }
   ];
+  const options2 = [
+    {
+        value: 'For rent',
+        label: 'For rent'
+      },
+      {
+        value: 'For sale',
+        label: 'For sale'
+      },
+  ]
 
-const Upload = (props) => {
-    const tableName = 'Properties';
+const Upload2 = (props) => {
+    const tableName = 'Properties2';
     const history = useHistory();
     const [loading,setLoading]=React.useState(false);
     const [formValues,setFormValues]=React.useState({
@@ -80,6 +90,7 @@ post.set('type',formValues.type);
 post.set('price',formValues.price);
 post.set('url',formValues.url);
 post.set('room',formValues.room);
+post.set('room',formValues.flatstate);
 post.set('user',user)
 post.set('description',formValues.description);
 post.set('ref',formValues.ref);
@@ -154,7 +165,7 @@ alert(err.message)
 <Input type='number' placeholder='Enter Number of Rooms' title='All rooms' name='rooms' value={formValues.rooms}  handleChange={handleChange}/>
 <Input type='number' placeholder='Enter Number of Kitchen' title='Kitchen' name='kitchen' value={formValues.kitchen}  handleChange={handleChange}/>
 <Input type='number' placeholder='Enter Number of bathrooms' title='Bathroom' name='bathroom' value={formValues.bathroom}  handleChange={handleChange}/>
-
+<ReactSelect handleChange={handleSelectData.bind(this,'flatstate')} options={options2} name="flatstate" title="Flat State"/>
 <ReactSelect handleChange={handleSelectData.bind(this,'room')} options={options} name="room" title="Availabe room"/>
 <RichTextarea type='text' placeholder='Enter properties description' name='description' value={formValues.description} title='Properties Description' handleChange={(value)=>{handleChange({target:{name:'description',value}})}} />
 
@@ -169,4 +180,4 @@ alert(err.message)
   )
 }
 
-export default Upload
+export default Upload2
