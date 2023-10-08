@@ -12,9 +12,8 @@ function NavScrollExample() {
       <Container fluid>
         <Navbar.Brand href="#">
         <i className="fas fa-home"></i>
-                                <span className="ms-2">
-                            ZEEGOLD INVESTMENT LIMITED
-                           </span>
+    
+       ZEEGOLD INVESTMENT LIMITED    
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
