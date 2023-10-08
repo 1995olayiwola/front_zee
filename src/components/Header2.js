@@ -10,10 +10,8 @@ function NavScrollExample() {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container fluid>
-        <Navbar.Brand href="#">
-        <i className="fas fa-home"></i>
-    
-       ZEEGOLD INVESTMENT LIMITED    
+        <Navbar.Brand href="/">
+           <img src="http://res.cloudinary.com/olatechbus/image/upload/v1696785401/ui5vzud4ptnmbfiw3iov.jpg" alt="ZEEGOLD INVESTMENT LIMITED"/>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
