@@ -1,10 +1,35 @@
-import { useEffect, useState } from "react"
+import React, { useEffect, useState } from "react"
 import banner from "../banner.jpg"
 import { Link } from "react-router-dom";
+import Parse from 'parse';
 const Banner = () => {
-    const [search, setSearch] = useState();
-    const [find, setFind] = useState([]);
-    const [word, setWord] = useState("");
+    
+const [search, setSearch] = useState();
+const [find, setFind] = useState([]);
+const [word, setWord] = useState("");
+const [data,setData] = React.useState({
+    results:[], count:0
+})
+React.useEffect(()=>{
+    const process = async()=>{
+        try{
+            const query = new Parse.Query('Properties');
+            query.matches('name',word,'i');
+            query.withCount();
+            
+            const records = await query.find();
+            console.log(records);
+            
+            await setData(records);
+            console.log(records)
+            
+                  }
+                  catch(err){
+            alert(err.message)
+                  }
+    }
+    process();
+},[])
     useEffect(() => {
         setSearch(["a","b","test", "mb"])
     }, [])
@@ -37,6 +62,8 @@ const Banner = () => {
                                 <p>Find a newly build home</p>
                                 <h2 className="mt-2 mb-4 banner-title"><strong> Search keyword</strong> </h2>
                                 <div className="search-area">
+                                    <input value={word} onChange={(e) => findSearch(e)} type="text" className="inp-search" placeholder="Search" />
+                                    <button className="btn-search m-2">Search by category</button>
                                     <input value={word} onChange={(e) => findSearch(e)} type="text" className="inp-search" placeholder="Search" />
                                     <button className="btn-search m-2">Search All</button>
                                 </div>
