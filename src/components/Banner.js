@@ -4,17 +4,24 @@ import { Link } from "react-router-dom";
 import Parse from 'parse';
 const Banner = () => {
     
-const [search, setSearch] = useState();
+{/*const [search, setSearch] = useState();
 const [find, setFind] = useState([]);
-const [word, setWord] = useState("");
+const [word, setWord] = useState("");*/}
+const [keyword,setKeyword] = React.useState('');
+const [formValues,setFormValues] = React.useState({
+    keyword:''
+})
 const [data,setData] = React.useState({
     results:[], count:0
 })
+console.log('keyword is: ',keyword)
 React.useEffect(()=>{
     const process = async()=>{
         try{
             const query = new Parse.Query('Properties');
-            query.matches('name',word,'i');
+            if(keyword){
+                query.matches('name',keyword,'i');
+            } 
             query.withCount();
             
             const records = await query.find();
@@ -29,11 +36,23 @@ React.useEffect(()=>{
                   }
     }
     process();
-},[])
-    useEffect(() => {
+},[keyword])
+   { /*useEffect(() => {
         setSearch(["a","b","test", "mb"])
-    }, [])
-    const findSearch = (e) => {
+    }, [])*/}
+    const handleSubmit =()=>{
+setKeyword(formValues.keyword)
+    }
+    const handleChange = (e)=>{
+setFormValues((fv)=>{
+return {
+    ...fv,[e.target.name]:e.target.value
+}
+})
+    }
+   {/*
+
+ const findSearch = (e) => {
         setWord(e.target.value)
         const filteredCountries = search.filter(item => item.indexOf(e.target.value) > -1 ? item : null);
         e.target.value.length === 0 ? setFind([]) : setFind(filteredCountries);
@@ -51,7 +70,10 @@ React.useEffect(()=>{
                 }
             </div>
         }
-    }
+    }*/}
+    
+   
+    console.log(formValues)
     return (
         <div className="banner d-flex align-items-center" style={{ backgroundImage: `url(${banner})` }}>
             <div className="bg-custom">
@@ -59,15 +81,27 @@ React.useEffect(()=>{
                     <div className="row">
                         <div className="col-lg-6 mx-auto">
                             <div className="banner-area text-center pt-4 pb-4">
-                                <p>Find a newly build home</p>
+                                <p>Find a newly built home</p>
                                 <h2 className="mt-2 mb-4 banner-title"><strong> Search keyword</strong> </h2>
                                 <div className="search-area">
-                                    <input value={word} onChange={(e) => findSearch(e)} type="text" className="inp-search" placeholder="Search" />
-                                    <button className="btn-search m-2">Search by category</button>
-                                    <input value={word} onChange={(e) => findSearch(e)} type="text" className="inp-search" placeholder="Search" />
-                                    <button className="btn-search m-2">Search All</button>
+                                    <input value={formValues.keyword} name="keyword" onChange={handleChange} type="text" className="inp-search" placeholder="Search" />
+                                    <button className="btn-search m-2" onClick={handleSubmit}>Search by category</button>
+                                {
+                                 keyword.length >0 && (
+                                    <div>
+                                        {data.results.map((item)=>{
+                                            console.log(item)
+                                            return (
+                                                <div key={item.id} style={{
+                                                    display:'flex',alignItems:'center',flexDirection:'column',justifyContent:'center'
+                                                }}><Link to={`/flat/${item.id}`}>{item.get('name')}</Link></div>
+                                            )
+                                        })}
+                                    </div>
+                                 )   
+                                }
                                 </div>
-                                {findResult()}
+                                
                             </div>
                         </div>
                     </div>
