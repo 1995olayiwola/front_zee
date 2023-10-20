@@ -37,7 +37,7 @@ const Upload = (props) => {
     const [loading,setLoading]=React.useState(false);
     const [formValues,setFormValues]=React.useState({
         name:'',type:'',price:'',url:'',description:'',
-        ref:'',status:'',bedroom:'', toilet:'',bathroom:'',park:'',rooms:'',kitchen:'', location:''
+        ref:'',status:'',bedroom:'', toilet:'',bathroom:'',park:'',rooms:'',kitchen:'', location:'',video:''
     })
     const [selectedFile,setSelectedFile]=React.useState(null);
     const [dataUrl,setDataUrl] = React.useState('');
@@ -91,6 +91,7 @@ post.set('park',formValues.park);
 post.set('rooms',formValues.rooms);
 post.set('kitchen',formValues.kitchen);
 post.set('location',formValues.location);
+post.set('video',formValues.video);
 setLoading(true);
 post.setACL(acl);
 await post.save();
@@ -154,7 +155,7 @@ alert(err.message)
 <Input type='number' placeholder='Enter Number of Rooms' title='All rooms' name='rooms' value={formValues.rooms}  handleChange={handleChange}/>
 <Input type='number' placeholder='Enter Number of Kitchen' title='Kitchen' name='kitchen' value={formValues.kitchen}  handleChange={handleChange}/>
 <Input type='number' placeholder='Enter Number of bathrooms' title='Bathroom' name='bathroom' value={formValues.bathroom}  handleChange={handleChange}/>
-
+<Input type='text' placeholder='Enter Video URL' title='Video URL' name='video' value={formValues.video}  handleChange={handleChange}/>
 <ReactSelect handleChange={handleSelectData.bind(this,'room')} options={options} name="room" title="Availabe room"/>
 <RichTextarea type='text' placeholder='Enter properties description' name='description' value={formValues.description} title='Properties Description' handleChange={(value)=>{handleChange({target:{name:'description',value}})}} />
 
