@@ -21,7 +21,7 @@ const FlatDetail = (props) => {
       try{
 const query = new Parse.Query('Properties');
 query.withCount();
-query.equalTo('user',user);
+//query.equalTo('user',user);
 query.equalTo('objectId',id)
 const records = await query.find();
 console.log(records);
@@ -194,6 +194,11 @@ return (
                                             <span>Parking space : {item.get('park') ==='1'? 'Available' : 'Not Available'}</span>
                                         </div>
                                     </div>
+                                </div>
+                                <div className="row">
+                                          <div className="embed-responsive embed-responsive-16by9" >
+        <iframe className="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowFullScreen width="100%" height="300px" />
+      </div>
                                 </div>
                                 <div className="fd-item">
                                     <h4>Maps</h4>

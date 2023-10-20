@@ -20,7 +20,7 @@ React.useEffect(()=>{
         try{
             const query = new Parse.Query('Properties');
             if(keyword){
-                query.matches('name',keyword,'i');
+                query.matches('name',formValues.keyword? formValues.keyword : keyword,'i');
             } 
             query.withCount();
             
