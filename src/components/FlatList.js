@@ -16,7 +16,7 @@ const FlatList = (props) => {
         try{
   const query = new Parse.Query('Properties');
   query.withCount();
-  
+  query.ascending('createdAt');
   const records = await query.find();
   console.log(records);
   
