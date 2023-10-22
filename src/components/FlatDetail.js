@@ -4,8 +4,16 @@ import Parse from 'parse';
 import {useHistory} from 'react-router-dom';
 import Loading from './Loading';
 import moment from 'moment';
+import { getYouTubeVideoId } from "./Functions";
+import Youtube from 'react-youtube';
 
-
+const opts = {
+    playerVars:{
+        autoplay:1,
+        controls:1,
+        enablejsapi:1
+    }
+}
 
 const FlatDetail = (props) => {
     console.log(props)
@@ -197,7 +205,7 @@ return (
                                 </div>
                                 <div className="row">
                                           <div className="embed-responsive embed-responsive-16by9" >
-        <iframe className="embed-responsive-item" src={item.get('video')} allowFullScreen width="100%" height="400px" />
+        <Youtube className="embed-responsive-item" videoId={getYouTubeVideoId(item.get('video'))} opts={opts} allowFullScreen width="100%" height="400px" />
       </div>
                                 </div>
                                 <div className="fd-item">
