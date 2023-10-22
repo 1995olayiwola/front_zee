@@ -205,7 +205,7 @@ return (
                                 </div>
                                 <div className="row">
                                           <div className="embed-responsive embed-responsive-16by9" >
-        <Youtube className="embed-responsive-item" videoId={getYouTubeVideoId(item.get('video'))} opts={opts} allowFullScreen width="100%" height="400px" />
+        <Youtube className="embed-responsive-item" videoId={getYouTubeVideoId(item.get('video'))} opts={opts} allowFullScreen  height="400px" />
       </div>
                                 </div>
                                 <div className="fd-item">
