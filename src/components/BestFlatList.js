@@ -17,7 +17,7 @@ const BestFlatList= ()=>{
           try{
     const query = new Parse.Query('Properties2');
     query.withCount();
-    query.ascending('createdAt');
+    query.descending('createdAt');
     const records = await query.find();
     console.log(records);
     
