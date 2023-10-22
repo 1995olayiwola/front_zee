@@ -6,6 +6,7 @@ import Loading from './Loading';
 import moment from 'moment';
 import { getYouTubeVideoId } from "./Functions";
 import Youtube from 'react-youtube';
+import './FlatDetails.css'
 
 const opts = {
     playerVars:{
@@ -205,7 +206,7 @@ return (
                                 </div>
                                 <div className="row">
                                           <div className="embed-responsive embed-responsive-16by9" >
-        <Youtube className="embed-responsive-item" videoId={getYouTubeVideoId(item.get('video'))} opts={opts} allowFullScreen  height="400px" />
+        <Youtube className="embed-responsive-item vid" videoId={getYouTubeVideoId(item.get('video'))} opts={opts} allowFullScreen  height="400px" />
       </div>
                                 </div>
                                 <div className="fd-item">
