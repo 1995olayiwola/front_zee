@@ -56,7 +56,7 @@ const FlatList = (props) => {
                 </div>
                 <div className="item-description">
                     <div className="d-flex justify-content-between mb-3">
-                        <span className="item-title"><div dangerouslySetInnerHTML={{__html: item.get('description')}} /></span>
+                        <span className="item-title"><div dangerouslySetInnerHTML={{__html: item.get('description').slice(0,50)}} /></span>
                         <span className="item-price">#{item.get('price')}</span>
                     </div>
                     <div className="item-icon d-flex alig-items-center justify-content-between">

@@ -128,7 +128,7 @@ return (
          
                                 <div className="fd-item">
                                     <h4>Description</h4>
-                                    <p><div dangerouslySetInnerHTML={{__html: item.get('description').slice(0,100)}} /></p>
+                                    <p><div dangerouslySetInnerHTML={{__html: item.get('description')}} /></p>
                                 </div>
                                 <div className="fd-item fd-property-detail">
                                     <h4>Property Details</h4>
